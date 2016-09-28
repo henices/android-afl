@@ -253,7 +253,7 @@ static void edit_params(u32 argc, char** argv) {
       FATAL("ASAN and MSAN are mutually exclusive");
 
     if (getenv("AFL_HARDEN"))
-      FATAL("ABSAN and AFL_HARDEN are mutually exclusive");
+      FATAL("ASAN and AFL_HARDEN are mutually exclusive");
 
     cc_params[cc_par_cnt++] = "-U_FORTIFY_SOURCE";
     cc_params[cc_par_cnt++] = "-fsanitize=address";
@@ -349,6 +349,7 @@ int main(int argc, char** argv) {
     exit(1);
 
   }
+
 
   find_as(argv[0]);
 
